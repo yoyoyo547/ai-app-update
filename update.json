@@ -1,7 +1,5 @@
-     ```json
-     {
-       "version": "1.2.5",
-       "log": "1. 修复了已知bug\n2. 上线了全新功能",
-       "url": "https://www.baidu.com"
-     }
-     ```
+{
+  "version": "1.2.5",
+  "log": "1. 修复了bug\n2. 上线了新功能",
+  "url": "https://www.baidu.com"
+}
