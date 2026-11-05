@@ -1,5 +1,5 @@
 {
-  "version": "1.8.1",
-  "log": "灵感匣 AI 1.8.1 正式版发布\n修复公告检查与弹窗问题\n优化进阶功能中心和主题配色\n增加用户反馈入口\n持续优化更新检测与使用体验",
-  "download_url": "https://github.com/yoyoyo547/ai-app-update/releases/download/v1.8.1/base.apk"
+  "version": "1.9.2",
+  "log": "灵感匣 AI 1.9.2 正式版\n进阶中心扩展至 60 项实用功能，新增 AI 工作助手\n优化独立工作台操作体验与界面细节\n设置中增加醒目的红色用户反馈入口\n优化聊天体验、更新检查与公告显示\n修复已知问题并提升整体稳定性",
+  "download_url": "https://github.com/yoyoyo547/ai-app-update/releases/download/1.9.2/base.apk"
 }
