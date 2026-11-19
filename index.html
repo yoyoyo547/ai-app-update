@@ -3,30 +3,121 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101522">
-  <title>灵感匣 · 官方下载</title>
-  <meta name="description" content="灵感匣 AI 1.9.3 官方下载页面">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="灵感匣 AI 官方网站，下载灵感匣 AI Android 版，体验智能对话、知识问答与创作辅助。">
+  <title>灵感匣 AI — 让灵感随时发生</title>
   <style>
+    :root{--green:#10a37f;--green-dark:#0d8b6d;--ink:#202123;--muted:#6b7280;--line:#e7e7e5;--bg:#fff;--soft:#f7f7f5}
     *{box-sizing:border-box}
-    body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 20% 10%,#27375c 0,transparent 42%),linear-gradient(145deg,#0b1020,#151d31 58%,#101522);color:#f7f8fc;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
-    main{width:min(100%,460px);text-align:center;padding:42px 28px;border:1px solid #ffffff20;border-radius:28px;background:#ffffff0c;box-shadow:0 24px 80px #0006;backdrop-filter:blur(18px)}
-    .logo{width:76px;height:76px;margin:0 auto 22px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(135deg,#8b9cff,#6c70ed);font-size:38px;font-weight:800;box-shadow:0 12px 35px #5968d955}
-    h1{font-size:30px;margin:0 0 10px;letter-spacing:1px}
-    .sub{margin:0;color:#b9c2d8;font-size:15px}
-    .version{margin:30px 0 18px;color:#cbd3e5;font-size:14px}
-    a{display:block;padding:16px 20px;border-radius:14px;background:linear-gradient(100deg,#7187ff,#8b69ef);color:white;text-decoration:none;font-weight:700;font-size:17px;box-shadow:0 10px 28px #6977ef55;transition:transform .15s,filter .15s}
-    a:active{transform:scale(.98);filter:brightness(.94)}
-    .foot{margin-top:20px;color:#8994ad;font-size:12px}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .topbar{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100% - 1120px)/2));border-bottom:1px solid var(--line);background:#ffffffed;position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}
+    .brand{display:flex;align-items:center;gap:11px;font-size:18px;font-weight:700;letter-spacing:-.4px}
+    .mark{width:34px;height:34px;border-radius:11px;background:var(--green);display:grid;place-items:center;color:#fff;font-size:19px;font-weight:800}
+    nav{display:flex;align-items:center;gap:28px;color:#555;font-size:14px}
+    nav a:hover{color:var(--green)}
+    .nav-download{padding:9px 16px;border-radius:9px;background:var(--green);color:#fff;font-weight:650}
+    .hero{max-width:1120px;margin:auto;padding:92px 24px 78px;display:grid;grid-template-columns:1.12fr .88fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 11px;border:1px solid #d8eee7;border-radius:999px;background:#f1faf6;color:#087b60;font-size:12px;font-weight:700}
+    .dot{width:7px;height:7px;background:var(--green);border-radius:50%}
+    h1{font-size:clamp(42px,6vw,66px);line-height:1.12;letter-spacing:-2.8px;margin:22px 0 18px;font-weight:750}
+    h1 span{color:var(--green)}
+    .lead{font-size:18px;color:#62666d;max-width:520px;margin:0 0 30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border-radius:10px;font-weight:700;font-size:15px;transition:transform .15s,background .15s}
+    .btn:hover{transform:translateY(-2px)}
+    .primary{background:var(--green);color:#fff;box-shadow:0 7px 18px #10a37f2b}
+    .primary:hover{background:var(--green-dark)}
+    .secondary{border:1px solid #d9d9d6;background:#fff}
+    .meta{margin-top:17px;color:#8a8d91;font-size:12px}
+    .preview-wrap{position:relative;padding:22px;border-radius:24px;background:linear-gradient(145deg,#eff8f4,#f5f7f6);border:1px solid #e5eee9}
+    .preview{background:#fff;border:1px solid #e7e7e5;border-radius:17px;min-height:340px;box-shadow:0 20px 55px #1f29370d;overflow:hidden}
+    .preview-head{height:49px;border-bottom:1px solid #eee;display:flex;align-items:center;padding:0 17px;gap:8px;font-size:12px;color:#777}
+    .mini-mark{width:21px;height:21px;background:var(--green);border-radius:7px;color:#fff;display:grid;place-items:center;font-weight:800}
+    .chat{padding:25px 23px}
+    .bubble{max-width:88%;padding:13px 15px;border-radius:13px;font-size:13px;margin-bottom:15px}
+    .user-bubble{margin-left:auto;background:#f1f1ef}
+    .ai-bubble{background:#f3faf7;border:1px solid #e3f1eb}
+    .ai-label{font-size:11px;color:var(--green-dark);font-weight:750;margin-bottom:5px}
+    .typing{height:8px;width:48%;background:#dfe8e3;border-radius:8px;margin-top:8px}
+    .features{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:72px 24px}
+    .section{max-width:1120px;margin:auto}
+    .section-kicker{text-align:center;color:var(--green-dark);font-size:12px;font-weight:800;letter-spacing:1.6px}
+    h2{text-align:center;font-size:34px;letter-spacing:-1px;margin:8px 0 12px}
+    .section-desc{text-align:center;color:var(--muted);margin:0 auto 38px;max-width:560px;font-size:15px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .feature{padding:23px;border:1px solid var(--line);border-radius:15px;background:#fff}
+    .icon{width:39px;height:39px;border-radius:11px;background:#eaf7f1;color:var(--green-dark);display:grid;place-items:center;font-size:19px;font-weight:800;margin-bottom:15px}
+    .feature h3{font-size:16px;margin:0 0 7px}
+    .feature p{font-size:13px;color:var(--muted);margin:0}
+    .download{max-width:900px;margin:76px auto;padding:0 24px}
+    .download-card{padding:44px 28px;text-align:center;border:1px solid #dcece5;border-radius:20px;background:linear-gradient(135deg,#f4fbf7,#fff)}
+    .download-card h2{margin-top:0}
+    .download-card p{color:var(--muted);margin:0 auto 23px}
+    .version-pill{display:inline-block;margin-top:17px;padding:5px 10px;border-radius:999px;background:#e8f6ef;color:#087b60;font-size:12px;font-weight:700}
+    footer{border-top:1px solid var(--line);padding:24px;text-align:center;color:#92959a;font-size:12px}
+    @media(max-width:760px){.topbar{height:60px;padding:0 18px}nav{gap:14px}nav a:not(.nav-download){display:none}.hero{grid-template-columns:1fr;padding:62px 21px 54px;gap:36px}h1{letter-spacing:-1.8px}.lead{font-size:16px}.preview-wrap{max-width:470px;width:100%;margin:auto}.grid{grid-template-columns:1fr}.features{padding:58px 20px}.download{margin:55px auto}.download-card{padding:35px 20px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
   </style>
 </head>
 <body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="mark">灵</span><span>灵感匣 AI</span></a>
+    <nav aria-label="主导航">
+      <a href="#features">功能介绍</a>
+      <a href="#download">下载</a>
+      <a class="nav-download" href="https://github.com/yoyoyo547/ai-app-update/releases/download/1.9.3/base.apk">立即下载</a>
+    </nav>
+  </header>
+
   <main>
-    <div class="logo" aria-hidden="true">灵</div>
-    <h1>灵感匣</h1>
-    <p class="sub">灵感随行 · AI 助手</p>
-    <p class="version">官方版本：1.9.3</p>
-    <a href="https://github.com/yoyoyo547/ai-app-update/releases/download/1.9.3/base.apk">下载安卓版 APK</a>
-    <p class="foot">灵感匣官方发布页面 · 1.9.3 正式版</p>
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> 灵感匣 AI · Android 正式版</div>
+        <h1>让每一个<br><span>灵感</span>都有回应。</h1>
+        <p class="lead">一个随时待命的 AI 助手。和它交流想法、探索知识、整理灵感，让思考和创作变得更简单。</p>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/yoyoyo547/ai-app-update/releases/download/1.9.3/base.apk">↓ 下载 Android 版</a>
+          <a class="btn secondary" href="#features">了解功能</a>
+        </div>
+        <div class="meta">当前正式版本 1.9.3 · Android APK</div>
+      </div>
+      <div class="preview-wrap" aria-label="灵感匣 AI 对话界面示意">
+        <div class="preview">
+          <div class="preview-head"><span class="mini-mark">灵</span><strong>灵感匣 AI</strong><span>·</span><span>新对话</span></div>
+          <div class="chat">
+            <div class="bubble user-bubble">帮我把一个新想法整理成可执行的计划。</div>
+            <div class="bubble ai-bubble"><div class="ai-label">灵感匣 AI</div>当然可以。我们可以先明确目标，再拆分步骤、安排优先级，最后形成一份清晰的行动计划。<div class="typing"></div></div>
+            <div class="bubble user-bubble">那我们开始吧。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="section">
+        <div class="section-kicker">WHAT YOU CAN DO</div>
+        <h2>让想法变得更有力量</h2>
+        <p class="section-desc">把常用的 AI 能力放在一起，从日常交流到灵感创作，都能轻松开始。</p>
+        <div class="grid">
+          <article class="feature"><div class="icon">✳</div><h3>智能对话</h3><p>随时提出问题、讨论想法，获得清晰自然的交流体验。</p></article>
+          <article class="feature"><div class="icon">⌕</div><h3>知识探索</h3><p>辅助理解知识、梳理信息，把复杂问题拆解得更容易理解。</p></article>
+          <article class="feature"><div class="icon">▤</div><h3>灵感整理</h3><p>记录和回顾对话内容，让有价值的思路更容易找回来。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <div class="download-card">
+        <h2>现在开始，打开灵感</h2>
+        <p>下载灵感匣 AI Android 版，开始你的下一次探索。</p>
+        <a class="btn primary" href="https://github.com/yoyoyo547/ai-app-update/releases/download/1.9.3/base.apk">↓ 下载灵感匣 AI 1.9.3</a>
+        <div><span class="version-pill">官方正式版 · v1.9.3</span></div>
+      </div>
+    </section>
   </main>
+
+  <footer>© 2026 灵感匣 AI · 官方网站</footer>
 </body>
 </html>
